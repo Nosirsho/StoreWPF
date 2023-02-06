@@ -32,6 +32,7 @@ namespace StoreWPF.Data
                         break;
                 }
             })
+            .AddTransient<DbInitializer>()
         ;
     }
 }

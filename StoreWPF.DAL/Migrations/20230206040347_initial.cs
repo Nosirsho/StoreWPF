@@ -160,9 +160,8 @@ namespace StoreWPF.DAL.Migrations
                     ModifiedBy = table.Column<long>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ModifiedOn = table.Column<DateTime>(nullable: false),
-                    OperationId = table.Column<long>(nullable: true),
-                    Quantity = table.Column<int>(nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    OperationDate = table.Column<DateTime>(type: "Date", nullable: false),
+                    OperationId = table.Column<long>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -185,7 +184,9 @@ namespace StoreWPF.DAL.Migrations
                     CreatedBy = table.Column<long>(nullable: false),
                     ModifiedBy = table.Column<long>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
-                    ModifiedOn = table.Column<DateTime>(nullable: false)
+                    ModifiedOn = table.Column<DateTime>(nullable: false),
+                    Quantity = table.Column<int>(nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {

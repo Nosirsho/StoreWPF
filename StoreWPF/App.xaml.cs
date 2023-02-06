@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using StoreWPF.DAL.Context;
 using StoreWPF.Data;
 using StoreWPF.Services;
 using StoreWPF.ViewModels;
@@ -25,7 +26,12 @@ namespace StoreWPF
         protected override async void OnStartup(StartupEventArgs e)
         {
             var host = Host;
-            base.OnStartup(e);
+
+            using (var scope = Services.CreateScope())
+                scope.ServiceProvider.GetRequiredService<DbInitializer>().InitializeAsync().Wait();
+
+
+                base.OnStartup(e);
             await host.StartAsync();
         }
 
