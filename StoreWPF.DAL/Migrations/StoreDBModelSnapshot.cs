@@ -81,9 +81,6 @@ namespace StoreWPF.DAL.Migrations
                     b.Property<long?>("ProviderId")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("Id");
 
                     b.HasIndex("OperationTypeId");
@@ -121,7 +118,7 @@ namespace StoreWPF.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("OperationType");
+                    b.ToTable("OperationTypes");
                 });
 
             modelBuilder.Entity("StoreWPF.DAL.Entities.Order", b =>
@@ -189,7 +186,7 @@ namespace StoreWPF.DAL.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderProduct");
+                    b.ToTable("OrderProducts");
                 });
 
             modelBuilder.Entity("StoreWPF.DAL.Entities.Product", b =>

@@ -16,7 +16,9 @@ namespace StoreWPF.DAL.Context
         public DbSet<Provider> Providers { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Operation> Operations { get; set; }
+        public DbSet<OperationType> OperationTypes { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderProduct> OrderProducts { get; set; }
         
         public StoreDB(DbContextOptions<StoreDB> options) : base(options)
         {

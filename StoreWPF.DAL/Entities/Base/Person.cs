@@ -1,6 +1,6 @@
 ﻿using StoreWPF.DAL.Entities.Base;
 
-namespace StoreWPF.DAL.Entities
+namespace StoreWPF.DAL.Entities.Base
 {
     public abstract class Person : NamedEntity
     {

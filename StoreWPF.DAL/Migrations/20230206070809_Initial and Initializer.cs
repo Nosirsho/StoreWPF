@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace StoreWPF.DAL.Migrations
 {
-    public partial class initial : Migration
+    public partial class InitialandInitializer : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -26,7 +26,7 @@ namespace StoreWPF.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "OperationType",
+                name: "OperationTypes",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
@@ -40,7 +40,7 @@ namespace StoreWPF.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OperationType", x => x.Id);
+                    table.PrimaryKey("PK_OperationTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -94,7 +94,6 @@ namespace StoreWPF.DAL.Migrations
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ModifiedOn = table.Column<DateTime>(nullable: false),
                     Number = table.Column<string>(nullable: true),
-                    StartDate = table.Column<DateTime>(nullable: false),
                     DocumentNumber = table.Column<string>(nullable: true),
                     ProviderId = table.Column<long>(nullable: true),
                     OperationTypeId = table.Column<long>(nullable: true)
@@ -103,9 +102,9 @@ namespace StoreWPF.DAL.Migrations
                 {
                     table.PrimaryKey("PK_Operations", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Operations_OperationType_OperationTypeId",
+                        name: "FK_Operations_OperationTypes_OperationTypeId",
                         column: x => x.OperationTypeId,
-                        principalTable: "OperationType",
+                        principalTable: "OperationTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -175,7 +174,7 @@ namespace StoreWPF.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "OrderProduct",
+                name: "OrderProducts",
                 columns: table => new
                 {
                     OrderId = table.Column<long>(nullable: false),
@@ -190,15 +189,15 @@ namespace StoreWPF.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderProduct", x => new { x.OrderId, x.ProductId });
+                    table.PrimaryKey("PK_OrderProducts", x => new { x.OrderId, x.ProductId });
                     table.ForeignKey(
-                        name: "FK_OrderProduct_Orders_OrderId",
+                        name: "FK_OrderProducts_Orders_OrderId",
                         column: x => x.OrderId,
                         principalTable: "Orders",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_OrderProduct_Products_ProductId",
+                        name: "FK_OrderProducts_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
@@ -216,8 +215,8 @@ namespace StoreWPF.DAL.Migrations
                 column: "ProviderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderProduct_ProductId",
-                table: "OrderProduct",
+                name: "IX_OrderProducts_ProductId",
+                table: "OrderProducts",
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
@@ -239,7 +238,7 @@ namespace StoreWPF.DAL.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "OrderProduct");
+                name: "OrderProducts");
 
             migrationBuilder.DropTable(
                 name: "Orders");
@@ -257,7 +256,7 @@ namespace StoreWPF.DAL.Migrations
                 name: "UOMs");
 
             migrationBuilder.DropTable(
-                name: "OperationType");
+                name: "OperationTypes");
 
             migrationBuilder.DropTable(
                 name: "Providers");

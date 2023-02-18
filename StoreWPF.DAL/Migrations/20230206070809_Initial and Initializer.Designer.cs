@@ -10,8 +10,8 @@ using StoreWPF.DAL.Context;
 namespace StoreWPF.DAL.Migrations
 {
     [DbContext(typeof(StoreDB))]
-    [Migration("20230206040347_initial")]
-    partial class initial
+    [Migration("20230206070809_Initial and Initializer")]
+    partial class InitialandInitializer
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -83,9 +83,6 @@ namespace StoreWPF.DAL.Migrations
                     b.Property<long?>("ProviderId")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("Id");
 
                     b.HasIndex("OperationTypeId");
@@ -123,7 +120,7 @@ namespace StoreWPF.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("OperationType");
+                    b.ToTable("OperationTypes");
                 });
 
             modelBuilder.Entity("StoreWPF.DAL.Entities.Order", b =>
@@ -191,7 +188,7 @@ namespace StoreWPF.DAL.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderProduct");
+                    b.ToTable("OrderProducts");
                 });
 
             modelBuilder.Entity("StoreWPF.DAL.Entities.Product", b =>
