@@ -27,7 +27,7 @@ namespace StoreWPF.DAL.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<OrderProduct>()
-                .HasKey(t => new { t.OrderId, t.ProductId });
+                .HasKey(t => t.Id);
 
             modelBuilder.Entity<OrderProduct>()
                 .HasOne(sc => sc.Order)

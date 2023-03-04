@@ -10,8 +10,8 @@ using StoreWPF.DAL.Context;
 namespace StoreWPF.DAL.Migrations
 {
     [DbContext(typeof(StoreDB))]
-    [Migration("20230206070809_Initial and Initializer")]
-    partial class InitialandInitializer
+    [Migration("20230304093350_initial_db")]
+    partial class initial_db
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -157,11 +157,10 @@ namespace StoreWPF.DAL.Migrations
 
             modelBuilder.Entity("StoreWPF.DAL.Entities.OrderProduct", b =>
                 {
-                    b.Property<long>("OrderId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("ProductId")
-                        .HasColumnType("bigint");
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<long>("CreatedBy")
                         .HasColumnType("bigint");
@@ -169,22 +168,27 @@ namespace StoreWPF.DAL.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("Id")
-                        .HasColumnType("bigint");
-
                     b.Property<long>("ModifiedBy")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("ModifiedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<long>("OrderId")
+                        .HasColumnType("bigint");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<long>("ProductId")
+                        .HasColumnType("bigint");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("OrderId", "ProductId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
 
                     b.HasIndex("ProductId");
 

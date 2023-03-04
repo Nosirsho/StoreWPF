@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace StoreWPF.DAL.Migrations
 {
-    public partial class InitialandInitializer : Migration
+    public partial class initial_db : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -177,19 +177,20 @@ namespace StoreWPF.DAL.Migrations
                 name: "OrderProducts",
                 columns: table => new
                 {
-                    OrderId = table.Column<long>(nullable: false),
-                    ProductId = table.Column<long>(nullable: false),
-                    Id = table.Column<long>(nullable: false),
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     CreatedBy = table.Column<long>(nullable: false),
                     ModifiedBy = table.Column<long>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ModifiedOn = table.Column<DateTime>(nullable: false),
+                    OrderId = table.Column<long>(nullable: false),
+                    ProductId = table.Column<long>(nullable: false),
                     Quantity = table.Column<int>(nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderProducts", x => new { x.OrderId, x.ProductId });
+                    table.PrimaryKey("PK_OrderProducts", x => x.Id);
                     table.ForeignKey(
                         name: "FK_OrderProducts_Orders_OrderId",
                         column: x => x.OrderId,
@@ -213,6 +214,11 @@ namespace StoreWPF.DAL.Migrations
                 name: "IX_Operations_ProviderId",
                 table: "Operations",
                 column: "ProviderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrderProducts_OrderId",
+                table: "OrderProducts",
+                column: "OrderId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderProducts_ProductId",
