@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreWPF", "StoreWPF\StoreWPF.csproj", "{E3B18EFD-A8FE-4791-AEB3-B8F6AD1DB095}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreWPF.DAL", "StoreWPF.DAL\StoreWPF.DAL.csproj", "{7A38B59D-9010-4F90-B4B5-C1068267BADC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreWPF.DAL", "StoreWPF.DAL\StoreWPF.DAL.csproj", "{7A38B59D-9010-4F90-B4B5-C1068267BADC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreWPF.Interfaces", "StoreWPF.Interfaces\StoreWPF.Interfaces.csproj", "{20BAB9C5-88A8-45A9-A8F1-DF63D69FB7BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7A38B59D-9010-4F90-B4B5-C1068267BADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A38B59D-9010-4F90-B4B5-C1068267BADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A38B59D-9010-4F90-B4B5-C1068267BADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20BAB9C5-88A8-45A9-A8F1-DF63D69FB7BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20BAB9C5-88A8-45A9-A8F1-DF63D69FB7BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20BAB9C5-88A8-45A9-A8F1-DF63D69FB7BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20BAB9C5-88A8-45A9-A8F1-DF63D69FB7BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

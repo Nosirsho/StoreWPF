@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StoreWPF.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StoreWPF.DAL.Entities.Base
 {
-    public abstract class Entity
+    public abstract class Entity : IEntity
     {
         [Key]
         public long Id { get; set; }
